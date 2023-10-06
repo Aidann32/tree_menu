@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load menu_tags %}
+{% load static %}
+
+{% block title %}Меню{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'custom/css/style.css' %}">
+{% endblock %}
+
+
+    
+{% block content %}
+    <div class="container" style="margin-top:30px;">
+        <div class="row">
+            {% draw_menu 'first_menu' request %}
+
+            {% draw_menu 'test_menu2' request %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'custom/js/script.js' %}"></script>
+{% endblock %}
