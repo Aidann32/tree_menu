@@ -1,0 +1,13 @@
+{% load menu_tags %}
+
+<ul id="{{ menu_item_pk }}" class="nested {% if items|is_have_active:current_url %}active{% endif %}">
+    {% for key, value in items.items %}
+        <li>
+            <a href="{{ value.menu_items__url|get_absolute_url:current_url }}">{{ value.menu_items__name }}</a>
+            {% if value.menu_items__children %}
+                <span class="caret" id="span_{{ value.menu_items__pk }}"></span>
+                {% draw_submenu value.menu_items__children current_url value.menu_item__pk %}
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
